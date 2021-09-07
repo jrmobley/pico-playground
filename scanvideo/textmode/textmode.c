@@ -508,9 +508,6 @@ void go_core1(void (*execute)()) {
 }
 
 int main(void) {
-#if PICO_SCANVIDEO_48MHZ
-    set_sys_clock_48mhz();
-#endif
     gpio_put(27, 0);
 
     setup_default_uart();

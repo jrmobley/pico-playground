@@ -26,7 +26,6 @@
 //#define VGA_MODE vga_mode_320x240_60
 #define VGA_MODE vga_mode_640x480_60
 #define DUAL_CORE_RENDER
-// #define TURBO_BOOST
 #define N_BERRIES 45
 
 CU_REGISTER_DEBUG_PINS(generation)
@@ -171,17 +170,7 @@ void __time_critical_func(frame_update_logic)() {
 }
 
 int main(void) {
-#ifdef TURBO_BOOST
-    hw_set_bits(&mm_vreg_and_chip_reset->vreg, VREG_AND_CHIP_RESET_VREG_VSEL_BITS);
-    sleep_ms(10);
-    set_sys_clock_khz(400000, true);
-#else
-#if PICO_SCANVIDEO_48MHz
-    set_sys_clock_khz(192000, true);
-#else
     set_sys_clock_khz(200000, true);
-#endif
-#endif
     // Re init uart now that clk_peri has changed
     setup_default_uart();
 

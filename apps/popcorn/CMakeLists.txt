@@ -18,14 +18,11 @@ if (PICO_ON_DEVICE)
                 __HEAP_SIZE=0x500
                 PICO_USE_STACK_GUARDS=1
                 PICO_SCANVIDEO_ADJUST_BUS_PRIORITY=1
-                PICO_SCANVIDEO_ENABLE_VIDEO_CLOCK_DOWN=1
                 PLATYPUS_565
                 VIDEO_565
                 VIDEO_DBI
 
                 PICO_SCANVIDEO_LINKED_SCANLINE_BUFFERS=1 # we do two rows at a time
-
-                #PICO_SCANVIDEO_48MHZ # still uses this for now
                 )
 
         target_link_libraries(popcorn
